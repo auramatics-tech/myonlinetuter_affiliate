@@ -1,0 +1,553 @@
+@import url("https://fonts.googleapis.com/css2?family=Lexend&family=Montserrat&family=Poppins:wght@600&display=swap");
+body {
+  font-family: "Lexend", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+.primary-color {
+  color: #2765f1 !important;
+}
+.secondary-color {
+  color: #ff5200 !important;
+}
+.black-color {
+  color: #000000;
+}
+.gray-color-900 {
+  color: #101828;
+}
+.gray-color-600 {
+  color: #344054;
+}
+.gray-color-500 {
+  color: #545454;
+}
+.gray-color-300 {
+  color: #667085;
+}
+.danger-color {
+  color: #ff0000;
+}
+.success-color {
+  color: #008000;
+}
+.bg-success {
+  color: #008000;
+}
+.bg-danger {
+  background: #e74040;
+}
+.bg-primary {
+  background: #2765f1 !important;
+}
+.bg-secondary {
+  background: #ff5200 !important;
+}
+.bg-light {
+  background: #f3f3f3 !important;
+}
+.bg-none {
+  background-color: transparent !important;
+}
+.primary-border-color {
+  border-color: #2765f1;
+}
+.primary-border-shadow {
+  box-shadow: inset 8px 0px 0px #2765f1;
+}
+.secondary-border-shadow {
+  box-shadow: inset 8px 0px 0px #ff5200;
+}
+.fs-30px {
+  font-size: 30px;
+  line-height: 45px;
+}
+.fs-18px {
+  font-size: 18px;
+  line-height: 28px;
+}
+.fs-16px {
+  font-size: 16px;
+  line-height: 30px;
+}
+.fs-14px {
+  font-size: 14px;
+  line-height: 17px;
+}
+.fs-24px {
+  font-size: 24px;
+  line-height: 36px;
+}
+.fw-600 {
+  font-weight: 600;
+}
+.fw-500 {
+  font-weight: 500;
+}
+.fw-400 {
+  font-weight: 400;
+}
+.font-lexend {
+  font-family: "Lexend", sans-serif;
+}
+.font-montserrat {
+  font-family: "Montserrat", sans-serif;
+}
+.font-poppins {
+  font-family: "Poppins", sans-serif;
+}
+label {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 30px;
+  color: #000000;
+}
+::placeholder {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #757575;
+}
+.global-card {
+  background: radial-gradient(
+    97.57% 210.75% at 0.9% 2.98%,
+    rgba(211, 213, 227, 0.39) 0%,
+    rgba(211, 213, 227, 0.21) 100%
+  );
+  border: 1px solid #dfe1f5;
+  border-radius: 8px;
+}
+.primary-btn {
+  background: #ff5200;
+  border: 1px solid #ff5200;
+  padding: 16px 28px;
+  color: #ffffff;
+}
+.primary-btn:hover {
+  background: #2765f1;
+  border: 1px solid #2765f1;
+}
+.secondary-btn {
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  padding: 10px 16px;
+  color: #344054;
+}
+.primary-btn,
+.secondary-btn {
+  width: 100%;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 27px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 8px;
+  height:44px;
+}
+/* form css start */
+.form-group {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+input.global_input {
+  padding: 1.5rem 2rem;
+  display: block;
+  width: 100%;
+  border: 1px solid #757575;
+}
+
+input.global_input:focus {
+  outline: none;
+}
+
+label.global_label {
+  position: absolute;
+  pointer-events: none;
+  left: 1rem;
+  background-color: #fff;
+  padding: 0 10px;
+  border-radius: 5px;
+  top: 30%;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+input.global_input::placeholder {
+  opacity: 0;
+}
+input.global_input:focus.global_input::placeholder {
+  opacity: 1;
+}
+input.global_input:focus ~ label.global_label,
+input.global_input:valid ~ label.global_label {
+  top: -15px;
+  left: 1rem;
+  color: #2765f1;
+}
+input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border: 1px solid #d0d5dd;
+  border-radius: 4px;
+}
+/* form css end */
+/* login page css start */
+.left_img_cover {
+  height: calc(100vh - 0px);
+}
+.left_img_cover img {
+  width: 100%;
+  height: 100%;
+  object-fit:cover;
+}
+.right_text_cover {
+  overflow-y: auto;
+  height: calc(100vh - 0px);
+}
+.login_content {
+  max-width: 480px;
+  padding: 3rem 1rem;
+  width: 100%;
+}
+/* login page css end */
+/* page sidebar css start */
+.pl_name .nav-item {
+  margin: 1rem 0;
+  padding: 1rem 0 1rem 1.5rem;
+  width: 100%;
+}
+.pl_name .nav-item:hover,
+.pl_name .nav-item.active {
+  background: #dbdbdb;
+}
+.pl_name .nav-link object {
+  float: left;
+}
+.pl_name .nav-link span {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 36px;
+  color: #000000;
+  float: left;
+}
+.side_logo {
+  width: 100%;
+  height: 90px;
+}
+.side_logo img {
+  width: 100%;
+}
+.user_profile_fig {
+  width: 80px;
+  height: 80px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.user_profile_fig img {
+  width: 100%;
+}
+
+/* page sidebar css end */
+/* dashboard css start */
+.note_count {
+  width: 19px;
+  height: 19px;
+  text-align: center;
+  border-radius: 50%;
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 10px;
+  padding-top: 5px;
+  margin-left: 16px;
+}
+.sum_card {
+  min-height: 169px;
+  min-width: 100%;
+  backdrop-filter: blur(21px);
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  margin-bottom: 20px;
+}
+.sum_card .box {
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* dashboard css end */
+/* urls css start */
+.input_card {
+  border: 1px solid #dddddd;
+  padding: 30px;
+}
+.input_card_parent {
+  border: 1px solid #dddddd;
+  padding: 16px;
+}
+/* urls css end */
+/* referrals css start */
+.select_card {
+  border: 1px solid #000;
+  padding: 16px;
+}
+.table {
+  border-color: #000;
+  border: 1px solid #000;
+  border-top: 0;
+  border-bottom: 0;
+}
+.table tr td,
+.table tr th {
+  border-right: 0 !important;
+  border-left: 0 !important;
+}
+.table thead tr th {
+  padding: 1rem;
+}
+.table tbody tr th,
+.table thead tr th div {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+}
+.table tbody tr td {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000;
+}
+.table tbody tr th,
+.table tbody tr td {
+  padding: 1.5rem 1rem;
+}
+.referral_card {
+  border: 0;
+  border-top: 1px solid #000;
+  border-radius: 0;
+}
+.referral_card .child_one {
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.pagination-left,
+.pagination-right {
+  border: 1px solid #000;
+  border-radius: 0;
+}
+.pagination li a {
+  font-family: "Lexend";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #000000 !important;
+  border: 0;
+  border-radius: 0;
+}
+.pagination li.current {
+  border: 1px solid #000 !important;
+  margin: 0px 2px;
+}
+.pagination-left {
+  border-left: 0px;
+}
+.pagination-right {
+  border-right: 0px;
+}
+.badge_div {
+  padding: 2px 12px;
+  background: #f4f4f4;
+  width: fit-content;
+}
+.w-100px {
+  min-width: 100px;
+}
+.w-150px {
+  min-width: 150px;
+}
+.w-300px {
+  min-width: 300px;
+}
+/* referrals css end */
+/* settings css start */
+.upload_card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 284px;
+  height: 272px;
+  text-align:center;
+}
+.input_card_parent select:focus,
+.input_card_parent input:focus {
+  outline: 0;
+}
+/* settings css end */
+/* media viewport start */
+@media screen and (max-width: 1600px) {
+  /* sidebar start */
+  .fs-24px,
+  .pl_name .nav-link span {
+    font-size: 20px;
+    line-height: 26px;
+  }
+  .pl_name .nav-item {
+    padding: 0.75rem 0 0.75rem 1rem;
+  }
+  .pl_name .nav-link object {
+    width: 26px;
+    height: 26px;
+  }
+  .side_logo {
+    height: 62px;
+  }
+  /* sidebar end */
+}
+@media screen and (max-width: 1299px) {
+  /* sidebar start */
+  .fs-24px,
+  .pl_name .nav-link span {
+    font-size: 18px;
+  }
+  /* sidebar end */
+}
+@media screen and (max-width: 1024px) {
+  .tableResponsive table {
+    overflow-x: auto;
+    width: 720px;
+    display: block;
+  }
+}
+@media screen and (max-width: 991px) {
+  .primary-btn,
+  .secondary-btn {
+    font-size: 16px;
+  }
+  input.global_input {
+    padding: 1rem 2rem;
+  }
+  label.global_label {
+    top: 23%;
+  }
+  /* sidebar start */
+  .side_logo {
+    height: 40px;
+  }
+  .user_profile_fig {
+    width: 60px;
+    height: 60px;
+  }
+  /* sidebar end */
+  .tableResponsive table {
+    width: 515px;
+  }
+  .pl_name .nav-link img{
+    width:30px;
+        height:30px;
+}
+ .pl_name .nav-item {
+    padding: 0.75rem;}
+}
+@media screen and (max-width: 767px) {
+  .right_text_cover {
+    overflow-y: hidden;
+    height: auto;
+  }
+  /* sidebar start */
+  .side_logo {
+    width: 40px;
+    height: 40px;
+  }
+  .user_profile_fig {
+    width: 40px;
+    height: 40px;
+  }
+  .pl_name .nav-item {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+  }
+  /* sidebar end */
+  .tableResponsive table {
+    width: 356px;
+  }
+  .left_img_cover {
+  height: 400px;
+}
+}
+@media screen and (max-width: 576px) {
+  .login_content {
+    width: 100%;
+  }
+  /* sidebar start */
+  .pl_name .nav-item {
+    display: flex;
+    justify-content: center;
+  }
+  .upload_card {
+    width: 97%;
+    height: 200px;
+  }
+  /* sidebar end */
+  .tableResponsive table {
+    width: 304px;
+  }
+  .input_card {
+    padding: 16px;
+}
+ .input_card .fs-18px {
+    font-size: 14px;
+    line-height: 24px;
+}
+}
+@media screen and (max-width: 575px) {
+   .width-left {
+       width:60px !important;
+   } 
+    .width-right {
+        margin-left:auto;
+       width:calc(100% - 60px)!important;
+       padding:16px 0px !important;
+   } 
+   .tableResponsive table {
+    width: 100%;
+}
+
+.pagination li a {
+    font-size: 13px;}
+    .fs-30px{
+        font-size:25px;
+    }
+}
+@media screen and (max-width: 390px) {
+   .input_card{
+       flex-wrap:wrap;
+   }  
+   .input_card span{
+       width:80%;
+   }
+}
+/* media viewport end */
