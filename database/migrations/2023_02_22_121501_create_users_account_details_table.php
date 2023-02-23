@@ -14,7 +14,15 @@ class CreateUsersAccountDetailsTable extends Migration
     public function up()
     {
         Schema::create('users_account_details', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
+            $table->string('payout_type');
+            $table->string('account_name');
+            $table->string('account_no');
+            $table->string('account_type');
+            $table->string('bank_name');
+            $table->string('branch_code')->nullable();
+            $table->string('routing_number')->nullable();
+            $table->string('swift_code')->nullable();
             $table->timestamps();
         });
     }
