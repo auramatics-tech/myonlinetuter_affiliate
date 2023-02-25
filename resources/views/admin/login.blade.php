@@ -45,8 +45,8 @@
                     </div>
                     <div class="bottom_child">
                         <div class="signin_buttons text-center">
-                            <a href="" type="button" class="secondary-btn text-decoration-none mt-3"><object class="me-3" type="image/svg+xml" data="./images/google.svg"></object>Sign in with Google</a>
-                            <a href="" type="button" class="secondary-btn text-decoration-none mt-3"><object class="me-3" type="image/svg+xml" data="./images/facebook.svg"></object>Sign in with Facebook</a>
+                            <a href="{{route('google_login')}}" type="button" class="secondary-btn text-decoration-none mt-3"><object class="me-3" type="image/svg+xml" data="./images/google.svg"></object>Sign in with Google</a>
+                            <a href="{{route('facebook_login')}}" type="button" class="secondary-btn text-decoration-none mt-3"><object class="me-3" type="image/svg+xml" data="./images/facebook.svg"></object>Sign in with Facebook</a>
                         </div>
                         <div class="text_signin text-center mt-3">
                             <span class="gray-color-300 ">Don’t have an account? <a href="{{route('admin.signup')}}" class="primary-color">Sign up</a></span>

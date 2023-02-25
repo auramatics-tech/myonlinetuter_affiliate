@@ -10,7 +10,7 @@
             <div class="mx-auto pe-lg-4 pe-sm-4">
                 <div class="active_dot"></div>
                 <figure class="user_profile_fig">
-                    @if(!empty(auth()->user()->getMedia('avatars')->last()->getUrl('thumb')))
+                    @if(!empty(auth()->user()->getMedia('avatars')->last()))
                     <img src="{{ auth()->user()->getMedia('avatars')->last()->getUrl('thumb') }}" alt="Avatar" class="w-100 rounded-circle">
                     @else
                     <img src="{{asset('admin/images/Avatar.png')}}" alt="">
@@ -28,7 +28,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="https://auramatics.com/myonlinetutor/affiliate-admin/affliateUrls.html" class="nav-link p-0 align-middle">
+                <a href="{{route('admin.affiliate_url')}}" class="nav-link p-0 align-middle">
                     <img src="{{asset('admin/images/url.svg')}}" alt="" class="float-start" />
                     <span class="ms-3 d-none d-sm-inline">Affliate URLs</span>
                 </a>

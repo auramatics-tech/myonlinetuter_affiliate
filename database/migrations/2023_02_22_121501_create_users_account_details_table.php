@@ -15,6 +15,7 @@ class CreateUsersAccountDetailsTable extends Migration
     {
         Schema::create('users_account_details', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedInteger('user_id')->index();
             $table->string('payout_type');
             $table->string('account_name');
             $table->string('account_no');

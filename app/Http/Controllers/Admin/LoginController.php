@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\UserReferralId;
 class LoginController extends Controller
 {
 
@@ -82,7 +83,16 @@ class LoginController extends Controller
         $user->country = $request->country;
         $user->password = Hash::make($request->password);
         $user->role = 1;
+        if(isset($request->ref) && $request->ref != ''){
+            $ref = UserReferralId::where(['referral_id'=>$request->ref,'status'=>1])->first();
+            $user->parent_id = $ref->user_id;
+        }
         $user->save();
+        $create_ref = new UserReferralId();
+        $create_ref->user_id =  $user->id;
+        $number = random_int(100000, 999999);
+        $create_ref->referral_id = $number;
+        $create_ref->save();
         return redirect()->route('admin.home')->with('success','Registered successfully.');
     }
 

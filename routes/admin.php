@@ -25,5 +25,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::post('/update-password', [App\Http\Controllers\Admin\AdminController::class, 'change_password'])->name('admin.change_password');
     Route::post('/update-email', [App\Http\Controllers\Admin\AdminController::class, 'update_email'])->name('admin.update_email');
     Route::post('/update-user-account-detail', [App\Http\Controllers\Admin\AdminController::class, 'update_user_account_detail'])->name('admin.update_user_account_detail');
+    //Affiliate
+    Route::get('/affiliate-url', [App\Http\Controllers\Admin\AffiliateController::class, 'index'])->name('admin.affiliate_url');
+    Route::post('/create-referral', [App\Http\Controllers\Admin\AffiliateController::class, 'create_referral'])->name('admin.create_referral');
 });
 

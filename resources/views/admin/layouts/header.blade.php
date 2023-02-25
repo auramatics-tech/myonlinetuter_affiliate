@@ -15,7 +15,7 @@
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="active_dot"></div>
             <figure class="m-0">
-                @if(!empty(auth()->user()->getMedia('avatars')->last()->getUrl('thumb')))
+                @if(!empty(auth()->user()->getMedia('avatars')->last()))
                 <img src="{{ auth()->user()->getMedia('avatars')->last()->getUrl('thumb') }}" alt="Avatar" width="40" height="40" class="rounded-circle">
                 @else
                 <img src="{{asset('admin/images/Avatar.png')}}" alt="hugenerd" width="40" height="40" class="rounded-circle">
@@ -23,7 +23,7 @@
             </figure>
         </a>
         <ul class="dropdown-menu dropdown-menu-light text-small shadow">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="{{route('admin.update_profile')}}">Profile</a></li>
             <li>
                 <hr class="dropdown-divider">
             </li>

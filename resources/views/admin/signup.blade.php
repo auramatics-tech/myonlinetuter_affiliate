@@ -27,6 +27,7 @@
                         <form class="row" action="{{route('admin.register')}}" method="post">
                             @csrf
                             <div class="form-group col-md-6 ps-md-0">
+                                <input type="hidden" name="ref" value="{{isset(request()->ref) ? request()->ref : ''}}">
                                 <input type="text" name="fname" class="global_input" placeholder="eg. john" value="{{old('fname')}}" required>
                                 <label class="global_label">First Name</label>
                                 @error('fname')

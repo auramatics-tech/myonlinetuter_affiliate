@@ -35,8 +35,9 @@
                                 @csrf
                                 <label for="user_avatar" class="input_card d-flex align-items-center gap-3 upload_card">
                                     <input type="file" name="avatar" id="user_avatar" class="d-none">
-                                    @if(!empty(auth()->user()->getMedia('avatars')->last()->getUrl('thumb')))
+                                    @if(!empty(auth()->user()->getMedia('avatars')->last()))
                                     <img src="{{ auth()->user()->getMedia('avatars')->last()->getUrl('thumb') }}" alt="Avatar" class="w-100">
+                                    <span class="fs-18px fw-400 font-lexend black-color">Click to change</span>
                                     @else
                                     <span class="fs-18px fw-400 font-lexend black-color">Upload an Image</span>
                                     @endif
@@ -124,14 +125,14 @@
                             <p class="mb-0 fs-18px fw-400 font-lexend black-color">Add Payment Method</p>
                         </div>
                         <div class="col-lg-7 col-12">
-                            <form action="" method="post">
+                            <form action="{{route('admin.update_user_account_detail')}}" method="post">
                                 @csrf
                                 <div class="input_card_parent border-0 px-md-3 px-0">
                                     <h6 class="fw-400 fs-24px font-lexend">Payout Type</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
                                         <select name="payout_type" id="" class="fs-18px fw-400 font-lexend black-color w-100 border-0">
-                                            <option value="Bank">Bank</option>
-                                            <option value="Paypal">Paypal</option>
+                                            <option @if(isset($account_detail->payout_type) && $account_detail->payout_type == 'Bank') selected @endif value="Bank">Bank</option>
+                                            <option @if(isset($account_detail->payout_type) && $account_detail->payout_type == 'Paypal') selected @endif value="Paypal">Paypal</option>
                                         </select>
                                         @error('payout_type')
                                         <span class="invalid-feedback" role="alert">
@@ -141,7 +142,7 @@
                                     </label>
                                     <h6 class="fw-400 fs-24px font-lexend">Account Name</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
-                                        <input type="text" name="account_name" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
+                                        <input type="text" value="{{isset($account_detail->account_name) ? $account_detail->account_name : ''}}" name="account_name" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
                                         @error('account_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -150,7 +151,7 @@
                                     </label>
                                     <h6 class="fw-400 fs-24px font-lexend">Account Number</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
-                                        <input type="text" name="account_no" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
+                                        <input type="text" value="{{isset($account_detail->account_no) ? $account_detail->account_no : ''}}" name="account_no" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
                                         @error('account_no')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -160,8 +161,8 @@
                                     <h6 class="fw-400 fs-24px font-lexend">Account Type</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
                                         <select name="account_type" id="" class="fs-18px fw-400 font-lexend black-color w-100 border-0">
-                                            <option value="Saving">Saving</option>
-                                            <option value="Current">Current</option>
+                                            <option @if(isset($account_detail->account_type) && $account_detail->account_type == 'Saving') selected @endif value="Saving">Saving</option>
+                                            <option @if(isset($account_detail->account_type) && $account_detail->account_type == 'Current') selected @endif value="Current">Current</option>
                                         </select>
                                         @error('account_type')
                                         <span class="invalid-feedback" role="alert">
@@ -171,7 +172,7 @@
                                     </label>
                                     <h6 class="fw-400 fs-24px font-lexend">Bank Name</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
-                                        <input type="text" name="bank_name" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
+                                        <input type="text" value="{{isset($account_detail->bank_name) ? $account_detail->bank_name : ''}}" name="bank_name" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
                                         @error('bank_name')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -180,7 +181,7 @@
                                     </label>
                                     <h6 class="fw-400 fs-24px font-lexend">Branch Code</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
-                                        <input type="text" name="branch_code" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
+                                        <input type="text" value="{{isset($account_detail->branch_code) ? $account_detail->branch_code : ''}}" name="branch_code" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
                                         @error('branch_code')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -189,7 +190,7 @@
                                     </label>
                                     <h6 class="fw-400 fs-24px font-lexend">Routing Number</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
-                                        <input type="text" name="routing_number" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
+                                        <input type="text" value="{{isset($account_detail->routing_number) ? $account_detail->routing_number : ''}}" name="routing_number" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
                                         @error('routing_number')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -198,7 +199,7 @@
                                     </label>
                                     <h6 class="fw-400 fs-24px font-lexend">SWIFT Code</h6>
                                     <label for="" class="input_card d-flex align-items-center gap-3 my-3">
-                                        <input type="text" name="swift_code" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
+                                        <input type="text" value="{{isset($account_detail->swift_code) ? $account_detail->swift_code : ''}}" name="swift_code" class="fs-18px fw-400 font-lexend black-color w-100 border-0" />
                                         @error('swift_code')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

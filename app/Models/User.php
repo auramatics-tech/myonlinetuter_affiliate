@@ -69,4 +69,10 @@ class User extends Authenticatable implements HasMedia
 
         return $media->getUrl($conversionName);
     }
+    public function get_first_referral_id(){
+       return $this->hasOne(UserReferralId::class ,'user_id','id')->orderby('id','asc');
+    }
+    public function get_last_referral_id(){
+        return $this->hasOne(UserReferralId::class ,'user_id','id')->orderby('id','desc');
+     }
 }

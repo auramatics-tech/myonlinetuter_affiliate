@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use App\Models\User;
+use App\Models\UserAccountDetail;
 use DB;
 
 class AdminController extends Controller
@@ -15,7 +16,8 @@ class AdminController extends Controller
 
     public  function index()
     {
-        return view('admin.profile');
+        $account_detail = UserAccountDetail::where('user_id',auth()->user()->id)->first();
+        return view('admin.profile',compact('account_detail'));
     }
     public function updateprofilephoto(Request $request)
     {
@@ -63,6 +65,27 @@ class AdminController extends Controller
         return back()->with('success','Email updated successfully');
     }
     public function update_user_account_detail(Request $request){
-        echo "<pre>";print_r($request->all());die;
+        $this->validate($request, [
+            'payout_type' => ['required'],
+            'account_name' => ['required'],
+            'account_no' => ['required'],
+            'account_type' => ['required'],
+            'bank_name' => ['required']
+        ]);
+        $account_detail = UserAccountDetail::where('user_id',auth()->user()->id)->first();
+        if(empty($account_detail)){
+            $account_detail = new UserAccountDetail();
+        }
+        $account_detail->user_id = auth()->user()->id;
+        $account_detail->payout_type = $request->payout_type;
+        $account_detail->account_name = $request->account_name;
+        $account_detail->account_no = $request->account_no;
+        $account_detail->account_type = $request->account_type;
+        $account_detail->bank_name = $request->bank_name;
+        $account_detail->branch_code = $request->branch_code;
+        $account_detail->routing_number = $request->routing_number;
+        $account_detail->swift_code = $request->swift_code;
+        $account_detail->save();
+        return back()->with('success','Data updated successfully');
     }
 }
