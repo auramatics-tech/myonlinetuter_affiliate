@@ -23,6 +23,11 @@
                             {{ Session::get('success') }}
                         </div>
                         @endif
+                        @if(Session::has('error'))
+                        <div class="alert alert-danger text-center">
+                            {{ Session::get('error') }}
+                        </div>
+                        @endif
                     </div>
                     <div class="middle_child">
                         <form action="{{route('admin.login')}}" method="post">
@@ -38,7 +43,7 @@
                             </div>
                             <div class="form-group d-flex justify-content-between align--center">
                                 <label for="" class="d-flex align-items-center"> <input type="checkbox" value=""> <span class="gray-color-600 fs-14px fw-500 font-poppins ms-2">Remember Me</span></label>
-                                <a href="#" class="fs-14px fw-500 font-poppins text-decoration-none">Forgot password?</a>
+                                <a href="{{ route('password.request') }}" class="fs-14px fw-500 font-poppins text-decoration-none">Forgot password?</a>
                             </div>
                             <button  class="primary-btn" type="submit">Sign in</button>
                         </form>

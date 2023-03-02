@@ -60,7 +60,7 @@ class LoginController extends Controller
                 $user->password = Hash::make(123456);
                 $user->role = 1;
                 $user->save();
-                $this->generate_referral_code();
+                $this->generate_referral_code($user->id);
             }
             if (Auth::guard('admin')->attempt(['email' => $user->email,'password' => 123456, 'role' => 1])) {
                 // if successful, then redirect to their intended location
@@ -81,10 +81,10 @@ class LoginController extends Controller
         // handle user login or registration
         // ...
     }
-    public function generate_referral_code()
+    public function generate_referral_code($user_id)
     {
         $create_ref = new UserReferralId();
-        $create_ref->user_id =  $user->id;
+        $create_ref->user_id =  $user_id;
         $number = random_int(100000, 999999);
         $create_ref->referral_id = $number;
         $create_ref->save();

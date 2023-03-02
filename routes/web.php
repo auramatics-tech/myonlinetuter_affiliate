@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 Route::get('/affiliate-admin', [App\Http\Controllers\Admin\LoginController::class, 'index'])->name('admin.home');
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -87,7 +87,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="row mb-md-5 mb-3">
+                    {{--<div class="row mb-md-5 mb-3">
                         <div class="col-lg-5 col-12 mb-3">
                             <h3 class="fs-30px fw-600 font-lexend black-color">Change Email</h3>
                             <p class="mb-0 fs-18px fw-400 font-lexend black-color">Change your Email from here</p>
@@ -118,7 +118,7 @@
                                 </div>
                             </form>
                         </div>
-                    </div>
+                    </div>--}}
                     <div class="row mb-md-5 mb-3">
                         <div class="col-lg-5 col-12 mb-3">
                             <h3 class="fs-30px fw-600 font-lexend black-color">Payout Method</h3>

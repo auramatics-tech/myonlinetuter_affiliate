@@ -28,5 +28,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
     //Affiliate
     Route::get('/affiliate-url', [App\Http\Controllers\Admin\AffiliateController::class, 'index'])->name('admin.affiliate_url');
     Route::post('/create-referral', [App\Http\Controllers\Admin\AffiliateController::class, 'create_referral'])->name('admin.create_referral');
+    //Referral
+    Route::get('/referral', [App\Http\Controllers\Admin\ReferralController::class, 'index'])->name('admin.referral');
+    //Payouts
+    Route::get('/payouts', [App\Http\Controllers\Admin\PayoutsController::class, 'index'])->name('admin.payouts');
 });
 

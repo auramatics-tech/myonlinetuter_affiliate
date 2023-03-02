@@ -21,31 +21,31 @@
                 {{auth()->user()->fname.' '.(isset(auth()->user()->lname) ? auth()->user()->lname : '')}}</div>
         </div>
         <ul class="pl_name nav nav-pills flex-column mb-0 align-items-center align-items-sm-start w-100" id="menu">
-            <li class="nav-item active">
-                <a href="dashboard.html" class="nav-link align-middle p-0">
+            <li class="nav-item @if(Route::is('admin.dashboard')) active @endif ">
+                <a href="{{route('admin.dashboard')}}" class="nav-link align-middle p-0">
                     <img src="{{asset('admin/images/dashboard.svg')}}" alt="" class="float-start" />
                     <span class="ms-3 d-none d-sm-inline">Home</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @if(Route::is('admin.affiliate_url')) active @endif">
                 <a href="{{route('admin.affiliate_url')}}" class="nav-link p-0 align-middle">
                     <img src="{{asset('admin/images/url.svg')}}" alt="" class="float-start" />
                     <span class="ms-3 d-none d-sm-inline">Affliate URLs</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="referrals.html" class="nav-link p-0 align-middle">
+            <li class="nav-item @if(Route::is('admin.referral')) active @endif">
+                <a href="{{route('admin.referral')}}" class="nav-link p-0 align-middle">
                     <img src="{{asset('admin/images/referral.svg')}}" alt="" class="float-start" />
                     <span class="ms-3 d-none d-sm-inline">Referrals</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="payouts.html" class="nav-link p-0 align-middle">
+            <li class="nav-item @if(Route::is('admin.payouts')) active @endif">
+                <a href="{{route('admin.payouts')}}" class="nav-link p-0 align-middle">
                     <img src="{{asset('admin/images/coin-stack.svg')}}" alt="" class="float-start" />
                     <span class="ms-3 d-none d-sm-inline">Payouts</span>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @if(Route::is('admin.update_profile')) active @endif">
                 <a href="{{route('admin.update_profile')}}" class="nav-link p-0 align-middle">
                     <img src="{{asset('admin/images/setting.svg')}}" alt="" class="float-start" />
                     <span class="ms-3 d-none d-sm-inline">Settings</span>

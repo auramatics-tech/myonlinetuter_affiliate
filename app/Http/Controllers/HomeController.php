@@ -21,8 +21,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
+        if(isset($request->ref)){
+            update_ref_history($user_id='',$request->ref,'Visit','Not Converted',$amount='');
+        }
+
         return view('frontend.index');
     }
 }

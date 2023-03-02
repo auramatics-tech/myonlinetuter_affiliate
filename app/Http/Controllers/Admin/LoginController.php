@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Models\UserReferralId;
+use App\Models\ReferralHistory;
 class LoginController extends Controller
 {
 
@@ -49,6 +50,9 @@ class LoginController extends Controller
         ]);
 
         $user_details = User::where('email', $request->email)->first();
+        if(!isset($user_details->email_verified_at)){
+            return redirect()->back()->with('error','Please verify email address');
+        }
         if (isset($user_details->id)) {
             // Attempt to log the user in
             if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password, 'role' => 1], $request->remember)) {
@@ -88,6 +92,12 @@ class LoginController extends Controller
             $user->parent_id = $ref->user_id;
         }
         $user->save();
+        $user->sendEmailVerificationNotification();
+        if(isset($request->ref) && $request->ref != ''){
+            $des = $user->fname. ' '. $user->lname.', '.$user->email. ', '. $user->city . ', '.  $user->state . ', '. $user->country ;
+            $status = 'Signed Up';
+            update_ref_history($user->id,$request->ref,$des, $status,$amount='');
+        }
         $create_ref = new UserReferralId();
         $create_ref->user_id =  $user->id;
         $number = random_int(100000, 999999);
